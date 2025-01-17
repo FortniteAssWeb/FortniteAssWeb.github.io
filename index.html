@@ -7,27 +7,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url("Images/Banner.png");
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+            background-image: url("Images/9.png");
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
             color: white;
-            margin: 0;
-            padding: 0;
+            position: relative; /* Para que el filtro se posicione correctamente */
+        }
+
+        /* Filtro oscuro para la imagen de fondo */
+        body::before {
+            content: '';
+            position: absolute; /* Lo hace estar detrás del contenido */
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            overflow-x: hidden;
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0; /* Elimina márgenes predeterminados */
-            padding: 0; /* Elimina rellenos predeterminados */
-            height: 100vh; /* Asegura que el cuerpo ocupe el 100% del alto de la ventana */
-            width: 100%; /* Asegura que el cuerpo ocupe el 100% del ancho */
-            background-image: url("Images/Banner.png"); /* Ruta a tu imagen */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-            background-position: center center; /* Centra la imagen */
-            background-size: cover; /* Hace que la imagen cubra toda la página */
-            background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
-            color: white; /* Texto blanco para que se vea sobre el fondo */
+            background: rgba(0, 0, 0, 0.5); /* Filtro oscuro sobre la imagen */
+            z-index: -1; /* Lo pone detrás del contenido */
         }
 
         /* Opcional: Agregar un filtro oscuro */
