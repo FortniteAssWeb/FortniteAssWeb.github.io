@@ -174,41 +174,68 @@
     </div>
 
     <div class="gallery">
-    <div onclick="openImagePage()">
-        <img src="Images/9.png" alt="Foto 1 de Fortnite">
-        <div class="info">Vistas 2.8M - Likes 92%</div>
-    </div>
-</div>
+      <style>
+        /* Estilo para la galería */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            gap: 10px;
+            padding: 10px;
+        }
 
-<script>
-    // Función para redirigir a Image1.html al hacer clic en la imagen
-    function openImagePage() {
-        window.location.href = "/Image1.html"; // Cambia a la URL de tu página
-    }
-</script>
+        .gallery div {
+            position: relative;
+            text-align: center;
+        }
 
+        .gallery img {
+            width: 100%; /* Asegura que la imagen ocupe todo el espacio disponible */
+            height: auto; /* Mantiene las proporciones de la imagen */
+            border-radius: 8px; /* Opcional, para bordes redondeados */
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <div onclick="openImagePage(1)">
+            <img src="Images/9.png" alt="Foto 1 de Fortnite">
+            <div class="info">Vistas 2.8M - Likes 92%</div>
+        </div>
         <div onclick="openImagePage(2)">
-            <img src="Images/10.png" alt="Foto 3 de Fortnite">
+            <img src="Images/10.png" alt="Foto 2 de Fortnite">
             <div class="info">Vistas 5.8M - Likes 90%</div>
         </div>
         <div onclick="openImagePage(3)">
-            <img src="Images/11.png" alt="Foto 4 de Fortnite">
+            <img src="Images/11.png" alt="Foto 3 de Fortnite">
             <div class="info">Vistas 888K - Likes 90%</div>
         </div>
         <div onclick="openImagePage(4)">
-            <img src="Images/12.png" alt="Foto 5 de Fortnite">
+            <img src="Images/12.png" alt="Foto 4 de Fortnite">
             <div class="info">Vistas 439K - Likes 91%</div>
         </div>
         <div onclick="openImagePage(5)">
-            <img src="Images/13.png" alt="Foto 6 de Fortnite">
+            <img src="Images/13.png" alt="Foto 5 de Fortnite">
             <div class="info">Vistas 178K - Likes 94%</div>
         </div>
         <div onclick="openImagePage(6)">
-            <img src="Images/14.png" alt="Foto 7 de Fortnite">
+            <img src="Images/14.png" alt="Foto 6 de Fortnite">
             <div class="info">Vistas 278K - Likes 85%</div>
         </div>
     </div>
 
+    <script>
+        // Función para redirigir a una página de imagen
+        function openImagePage(id) {
+            window.location.href = "Image" + id + ".html";
+        }
+    </script>
+    
     <div class="footer">
         <a href="index.html" class="login-btn">Volver a la Página Principal</a>
     </div>
