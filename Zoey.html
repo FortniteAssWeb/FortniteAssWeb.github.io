@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Culitos de Fortnite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+            background-image: url("Images/Banner.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            color: white;
+            position: relative; /* Para que el filtro se posicione correctamente */
+        }
+
+        /* Filtro oscuro para la imagen de fondo */
+        body::before {
+            content: '';
+            position: absolute; /* Lo hace estar detrás del contenido */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 1); /* Filtro oscuro sobre la imagen */
+            z-index: -1; /* Lo pone detrás del contenido */
+        }
+
+        /* Opcional: Agregar un filtro oscuro */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Oscurece ligeramente la imagen */
+            z-index: -1; /* Coloca el filtro detrás del contenido */
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #333;
+        }
+        header img {
+            height: 50px;
+        }
+        header h1 {
+            color: #61dafb;
+            margin: 0;
+            font-size: 36px;
+        }
+        header h2 {
+            color: white;
+            margin: 0;
+            font-size: 18px;
+            text-align: right;
+            flex-grow: 1;
+        }
+        .login-btn {
+            background-color: #61dafb;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #4fa3d1;
+        }
+        .banner {
+            text-align: center;
+            padding: 40px;
+        }
+        .banner h3 {
+            margin: 10px;
+            font-size: 24px;
+        }
+        .banner p {
+            font-size: 18px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background-color: #444;
+        }
+        .tags span {
+            background-color: #61dafb;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .tags span:hover {
+            background-color: #4fa3d1;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tres imágenes por fila */
+            gap: 20px;
+            padding: 40px;
+        }
+        .gallery div {
+            position: relative;
+            cursor: pointer;
+        }
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+        }
+        .footer a {
+            background-color: #61dafb;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .footer a:hover {
+            background-color: #4fa3d1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Images/Logo.PNG" alt="Logo de la página">
+        <h1>Culitos de Fortnite</h1>
+        <h2 id="login-btn">Iniciar sesión</h2> <!-- Mostrará el apodo si está logueado -->
+    </header>
+
+    <div class="banner">
+        <h3>Donador del mes: Lucas Nahuel Galimberti</h3>
+        <p>DNI: 47.127.668</p>
+    </div>
+
+    <div class="tags">
+        <span>Culos de Zoey</span>
+        <span>Culos de Hatsune Miku</span>
+        <span>Culos de Renegada</span>
+        <span>Culos de Karol G</span>
+        <span>Culos de negro</span>
+        <span>Culos de Billie Eilish</span>
+        <span>Culos de Messi</span>
+        <span>Culos de Ice Spice</span>
+        <span>Culos de Omega</span>
+        <span>Culos de Mr. Beast</span>
+    </div>
+
+<div class="gallery">
+  <style>
+    /* Estilo para la galería */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .gallery div {
+        position: relative;
+        text-align: center;
+    }
+
+    .gallery img {
+        width: 100%; /* Asegura que la imagen ocupe todo el espacio disponible */
+        height: 250px; /* Ajusta la altura de todas las imágenes */
+        object-fit: cover; /* Asegura que las imágenes cubran el área sin deformarse */
+        border-radius: 8px; /* Opcional, para bordes redondeados */
+    }
+
+    .info {
+        margin-top: 10px;
+        font-size: 14px;
+        color: white;
+    }
+  </style>
+
+ <div onclick="window.location.href='';">
+    <img src="Zoey/Zoey1.jpg" alt="Foto 1 de Fortnite">
+    <div class="info">Vistas 2.8M - Likes 92%</div>
+  </div>
+  <div onclick="window.location.href='';">
+    <img src="Zoey/Zoey2.jpg" alt="Foto 2 de Fortnite">
+    <div class="info">Vistas 5.8M - Likes 90%</div>
+  </div>
+  <div onclick="window.location.href='';">
+    <img src="Zoey/Zoey3.jpg" alt="Foto 3 de Fortnite">
+    <div class="info">Vistas 888K - Likes 90%</div>
+  </div>
+  
+</div>
+
+<script>
+    // Función para redirigir a una página de imagen
+    function openImagePage(id) {
+        window.location.href = "Image" + id + ".html";
+    }
+</script>
+
+    <div class="footer">
+        <a href="index.html" class="login-btn">Volver a la Página Principal</a>
+    </div>
+
+    <script>
+        // Función para redirigir a la página con la imagen grande
+        function openImagePage(imageNumber) {
+            window.location.href = `image${imageNumber}.html`; // Redirigir a la página de la imagen
+        }
+
+        // Verificar si el usuario ya está logueado y mostrar su apodo en el header
+        window.onload = function() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            const loginBtn = document.getElementById('login-btn');
+
+            if (loggedIn) {
+                const nickname = localStorage.getItem('nickname');
+                loginBtn.textContent = nickname; // Mostrar el apodo en lugar de "Iniciar sesión"
+            } else {
+                loginBtn.innerHTML = '<a href="login.html" class="login-btn">Iniciar sesión</a>'; // Enlace para iniciar sesión
+            }
+        }
+    </script>
+</body>
+</html>
