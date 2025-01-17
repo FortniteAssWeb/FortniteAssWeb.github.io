@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/Banner.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #333;
+        }
+        header img {
+            height: 50px;
+        }
+        header h1 {
+            color: #61dafb;
+            margin: 0;
+            font-size: 36px;
+        }
+        header h2 {
+            color: white;
+            margin: 0;
+            font-size: 18px;
+            text-align: right;
+            flex-grow: 1;
+        }
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #61dafb;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo de la página">
+        <h1>Culitos de Fortnite</h1>
+        <h2 id="login-btn">Iniciar sesión</h2> <!-- Mostrará el apodo si está logueado -->
+    </header>
+
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+
+        <!-- Mensaje de error -->
+        <div class="error-message" id="error-message">Credenciales incorrectas. Intenta de nuevo.</div>
+
+        <!-- Formulario de inicio de sesión -->
+        <form onsubmit="return handleLogin(event)">
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <div class="footer">
+            <p>¿No tienes cuenta? <a href="signup.html">Registrarse</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Función para manejar el inicio de sesión
+        function handleLogin(event) {
+            event.preventDefault(); // Evitar envío de formulario
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+            const storedNickname = localStorage.getItem('nickname');
+
+            // Verificar las credenciales
+            if (email === storedEmail && password === storedPassword) {
+                // Guardar el estado de inicio de sesión
+                localStorage.setItem('loggedIn', true);
+
+                // Redirigir a la página principal
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('error-message').style.display = 'block'; // Mostrar error
+            }
+        }
+
+        // Verificar si el usuario ya está logueado y mostrar su apodo en el header
+        window.onload = function() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            const loginBtn = document.getElementById('login-btn');
+
+            if (loggedIn) {
+                const nickname = localStorage.getItem('nickname');
+                loginBtn.textContent = nickname; // Mostrar el apodo en lugar de "Iniciar sesión"
+            }
+        }
+    </script>
+</body>
+</html>
