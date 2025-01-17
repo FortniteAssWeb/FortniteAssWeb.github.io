@@ -122,6 +122,85 @@
         <p><strong>Lucas Galimberti:</strong> Culo tan perfecto como una victoria royale</p>
     </div>
 
+    <div class="comments">
+    <h3>Comentarios</h3>
+    <div id="comments-list">
+        <!-- Los comentarios existentes aparecerán aquí -->
+    </div>
+    <form id="comment-form">
+        <input type="text" id="nickname" placeholder="Tu apodo" required />
+        <textarea id="comment" placeholder="Escribe tu comentario aquí" required></textarea>
+        <button type="submit">Publicar comentario</button>
+    </form>
+</div>
+
+    .comments form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.comments input,
+.comments textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.comments button {
+    background-color: #61dafb;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comments button:hover {
+    background-color: #4fa3d1;
+}
+
+    <script>
+        window.onload = function() {
+            const commentForm = document.getElementById('comment-form');
+            const commentsList = document.getElementById('comments-list');
+
+            // Cargar comentarios guardados
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+            function displayComments() {
+                commentsList.innerHTML = '';
+                comments.forEach(({ nickname, comment }) => {
+                    const commentElement = document.createElement('p');
+                    commentElement.innerHTML = `<strong>${nickname}:</strong> ${comment}`;
+                    commentsList.appendChild(commentElement);
+                });
+            }
+
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nickname = document.getElementById('nickname').value.trim();
+                const comment = document.getElementById('comment').value.trim();
+
+                if (nickname && comment) {
+                    comments.push({ nickname, comment });
+                    localStorage.setItem('comments', JSON.stringify(comments));
+                    displayComments();
+                    commentForm.reset();
+                }
+            });
+
+            // Mostrar los comentarios al cargar la página
+            displayComments();
+        };
+    </script>
+
     <div class="footer">
         <!-- Verifica la ruta correcta de index.html -->
         <a href="index.html" class="login-btn">Volver a la Página Principal</a>
