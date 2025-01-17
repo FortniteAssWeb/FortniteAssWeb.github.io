@@ -121,11 +121,11 @@
         <p><strong>Lucas Galimberti:</strong> Un facto es que este culo definitivamente es el MVP de la temporada</p>
         <p><strong>Lucas Galimberti:</strong> Culo tan perfecto como una victoria royale</p>
     </div>
-
-    <div class="comments">
+    
+<div class="comments">
     <h3>Comentarios</h3>
     <div id="comments-list">
-        <!-- Los comentarios existentes aparecerán aquí -->
+        <!-- Los comentarios aparecerán aquí -->
     </div>
     <form id="comment-form">
         <input type="text" id="nickname" placeholder="Tu apodo" required />
@@ -134,7 +134,29 @@
     </form>
 </div>
 
-    .comments form {
+    .comments {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+}
+
+.comments h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+#comments-list p {
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: left;
+    color: white;
+}
+
+.comments p strong {
+    color: #61dafb;
+}
+
+.comments form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -166,41 +188,40 @@
     background-color: #4fa3d1;
 }
 
-    <script>
-        window.onload = function() {
-            const commentForm = document.getElementById('comment-form');
-            const commentsList = document.getElementById('comments-list');
+    window.onload = function() {
+    const commentForm = document.getElementById('comment-form');
+    const commentsList = document.getElementById('comments-list');
 
-            // Cargar comentarios guardados
-            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    // Cargar comentarios guardados
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
 
-            function displayComments() {
-                commentsList.innerHTML = '';
-                comments.forEach(({ nickname, comment }) => {
-                    const commentElement = document.createElement('p');
-                    commentElement.innerHTML = `<strong>${nickname}:</strong> ${comment}`;
-                    commentsList.appendChild(commentElement);
-                });
-            }
+    function displayComments() {
+        commentsList.innerHTML = ''; // Limpia la lista antes de renderizar
+        comments.forEach(({ nickname, comment }) => {
+            const commentElement = document.createElement('p');
+            commentElement.innerHTML = `<strong>${nickname}:</strong> ${comment}`;
+            commentsList.appendChild(commentElement);
+        });
+    }
 
-            commentForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const nickname = document.getElementById('nickname').value.trim();
-                const comment = document.getElementById('comment').value.trim();
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nickname = document.getElementById('nickname').value.trim();
+        const comment = document.getElementById('comment').value.trim();
 
-                if (nickname && comment) {
-                    comments.push({ nickname, comment });
-                    localStorage.setItem('comments', JSON.stringify(comments));
-                    displayComments();
-                    commentForm.reset();
-                }
-            });
-
-            // Mostrar los comentarios al cargar la página
+        if (nickname && comment) {
+            comments.push({ nickname, comment });
+            localStorage.setItem('comments', JSON.stringify(comments));
             displayComments();
-        };
-    </script>
+            commentForm.reset();
+        }
+    });
 
+    // Mostrar los comentarios al cargar la página
+    displayComments();
+};
+
+    
     <div class="footer">
         <!-- Verifica la ruta correcta de index.html -->
         <a href="index.html" class="login-btn">Volver a la Página Principal</a>
